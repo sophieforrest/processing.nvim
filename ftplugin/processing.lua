@@ -1,8 +1,18 @@
 if not vim.g.loaded_processing_nvim then
-    -- Load processing.nvim commands
-    require('processing.commands')
-
     local config = require('processing.config')
+    -- Load processing.nvim commands
+    local commands = require('processing.commands')
+
+    if vim.fn.executable('ctags') then
+        commands.add_subcommand('ctags', {
+            complete = function(_)
+                return {}
+            end,
+            impl = function(_, _)
+                vim.system({ 'ctags', '--langmap=java:+.pde', '-R' })
+            end,
+        })
+    end
 
     if config.highlight.enable then
         -- Register the Java parser as the Processing parser
