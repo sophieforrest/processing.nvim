@@ -20,7 +20,7 @@ local function validate(tbl)
 end
 
 ---Validates the processing.nvim configuration.
----@param config processing.Config
+---@param config processing.Opts
 ---@return boolean is_valid
 ---@return string? error_message
 function Check.validate(config)
@@ -34,6 +34,7 @@ function Check.validate(config)
     if not ok then
         return false, err
     end
+
     return true
 end
 
