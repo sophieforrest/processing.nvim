@@ -8,3 +8,6 @@ if not vim.g.loaded_processing_nvim then
 end
 
 vim.g.loaded_processing_nvim = true
+
+-- Set commentstring for Processing files
+vim.bo.commentstring = '// %s'
