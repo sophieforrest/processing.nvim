@@ -33,18 +33,18 @@
 ---@type processing.Opts
 vim.g.processing_nvim = vim.g.processing_nvim
 
-local check = require("processing.config.check")
-local default_config = require("processing.config.default")
+local check = require('processing.config.check')
+local default_config = require('processing.config.default')
 local opts = vim.g.processing_nvim or {}
 
 ---@type processing.Config
-local config = vim.tbl_extend("force", default_config, opts)
+local config = vim.tbl_extend('force', default_config, opts)
 
 local ok, err = check.validate(config)
 
 if not ok then
     ---@cast err string
-    vim.notify(err, vim.log.levels.ERROR, { title = "processing.nvim" })
+    vim.notify(err, vim.log.levels.ERROR, { title = 'processing.nvim' })
 end
 
 return config

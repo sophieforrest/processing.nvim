@@ -14,7 +14,7 @@ local Check = {}
 ---@return boolean is_valid
 ---@return string? error_message
 local function validate(tbl)
-    local prefix = "Invalid config: "
+    local prefix = 'Invalid config: '
     local ok, err = pcall(vim.validate, tbl)
     return ok or false, err and (prefix .. err) or nil
 end
@@ -25,10 +25,10 @@ end
 ---@return string? error_message
 function Check.validate(config)
     local ok, err = validate({
-        highlight = { config.highlight, "table" },
-        ["highlight.enable"] = { config.highlight.enable, "boolean" },
-        lsp = { config.lsp, "table" },
-        ["lsp.cmd"] = { config.lsp.cmd, { "table", "function", "nil" } },
+        highlight = { config.highlight, 'table' },
+        ['highlight.enable'] = { config.highlight.enable, 'boolean' },
+        lsp = { config.lsp, 'table' },
+        ['lsp.cmd'] = { config.lsp.cmd, { 'table', 'function', 'nil' } },
     })
 
     if not ok then
