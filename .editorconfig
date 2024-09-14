@@ -14,5 +14,8 @@ indent_size = 2
 [*.lua]
 quote_type = single
 
+[*.md]
+indent_size = 2
+
 [*.nix]
 indent_size = 2
