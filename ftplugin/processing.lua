@@ -13,13 +13,19 @@ if not vim.g.loaded_processing_nvim then
         local processing = vim.api.nvim_create_augroup('ProcessingNvim', {
             clear = false,
         })
-        vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+        vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
             callback = function()
                 require('processing.lsp').start()
             end,
-            desc = 'Start processing-lsp on BufEnter.',
+            desc = 'Start processing-lsp on BufReadPost.',
             group = processing,
             pattern = { '*.pde' },
+        })
+
+        -- Run the initial BufReadPost, as this won't occur on the first buffer
+        vim.api.nvim_exec_autocmds({ 'BufReadPost' }, {
+            buffer = vim.api.nvim_get_current_buf(),
+            group = processing,
         })
     end
 end
