@@ -31,7 +31,7 @@ function Lsp.restart(bufnr)
                 vim.notify(
                     'Could not restart all LSP clients.',
                     vim.log.levels.ERROR,
-                    { title = 'processing.nvim lsp' }
+                    { title = 'processing.nvim' }
                 )
             end)
             timer:stop()
