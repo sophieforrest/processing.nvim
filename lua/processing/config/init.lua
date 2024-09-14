@@ -13,17 +13,20 @@
 ---
 ---@brief ]]
 
----@class processing.Config
+---@type processing.Config
 local config
 
----@type processing.Opts
+---@type processing.Config
 vim.g.processing_nvim = vim.g.processing_nvim
 
-vim.g.processing_nvim = vim.g.processing_nvim or {}
+local default_config = require("processing.config.default")
+local opts = vim.g.processing_nvim or {}
+
+config = vim.tbl_deep_extend("force", {}, default_config, opts)
 
 ---@tag vim.g.processing_nvim
 ---@tag g:processing_nvim
----@class processing.Opts
+---@class processing.Config
 ---@field processing_ls_command string? Command to run to execute the processing language server.
 
 return config
