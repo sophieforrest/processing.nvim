@@ -1,0 +1,6 @@
+{
+  "exclude": [
+    "flake.lock",
+    "LICENSE"
+  ]
+}

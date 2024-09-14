@@ -1,3 +1,7 @@
+# direnv
+.direnv/
+.pre-commit-config.yaml
+
 # Nix
 result
 result/
