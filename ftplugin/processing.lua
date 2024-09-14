@@ -9,6 +9,7 @@ if not vim.g.loaded_processing_nvim then
                 return {}
             end,
             impl = function(_, _)
+                -- TODO: We should report an error if this fails.
                 vim.system({ 'ctags', '--langmap=java:+.pde', '-R' })
             end,
         })
