@@ -2,7 +2,7 @@
 ---
 ---@brief [[
 ---
---- rest.nvim config validation (internal)
+--- processing.nvim config validation (internal)
 ---
 ---@brief ]]
 
@@ -18,9 +18,9 @@ local function validate(tbl)
     local ok, err = pcall(vim.validate, tbl)
     return ok or false, err and (prefix .. err) or nil
 end
----
+
 ---Validates the processing.nvim configuration.
----@param config processing.Config
+---@param config processing.Opts
 ---@return boolean is_valid
 ---@return string? error_message
 function Check.validate(config)
@@ -34,6 +34,7 @@ function Check.validate(config)
     if not ok then
         return false, err
     end
+
     return true
 end
 
