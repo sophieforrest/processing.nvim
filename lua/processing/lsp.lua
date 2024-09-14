@@ -109,6 +109,12 @@ require('processing.commands').add_subcommand('lsp', {
             Lsp.start()
         elseif cmd == 'stop' then
             Lsp.stop()
+        else
+            vim.notify(
+                'Unknown command: ' .. cmd,
+                vim.log.levels.ERROR,
+                { title = 'processing.nvim' }
+            )
         end
     end,
 })
