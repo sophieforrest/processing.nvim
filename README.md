@@ -8,6 +8,16 @@ This plugin is still work in progress, and doesn't support all the features of
 [sophacles/vim-processing](https://github.com/sophacles/vim-processing). However,
 it is still usable as long as you don't need the `:make` functionality.
 
+## Requirements
+
+- Neovim >= 0.10.0 (may work on previous versions).
+- optional:
+  - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
+  - a Processing Language Server (for lsp setup and `:Processing lsp`).
+  - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
+    the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
+    parser for syntax highlighting.
+
 ## Installation
 
 processing.nvim supports all the usual plugin managers.
@@ -88,6 +98,33 @@ vim.g.processing_nvim = {
     },
 }
 ```
+
+## Recipes
+
+Snippets users of processing.nvim may find useful to include in their configs.
+
+### Generating ctags on save
+
+```lua
+local processing_ctags = vim.api.nvim_create_augroup('ProcessingCtags', {})
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+    command = 'Processing ctags',
+    desc = 'Generate ctags for Processing on save.',
+    group = processing_ctags,
+    pattern = { '*.pde' },
+})
+```
+
+## Roadmap
+
+Plugin roadmap. If you have anything you feel should be added, please open an issue.
+
+- [x] `:Processing ctags`
+- [ ] `:make` runs sketch
+- [x] Language Server
+  - [x] Start Processing LSP
+  - [x] `:Processing lsp`
+- [x] Set commentstring
 
 ## Related projects
 
