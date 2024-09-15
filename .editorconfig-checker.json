@@ -1,6 +1,7 @@
 {
   "exclude": [
     "flake.lock",
-    "LICENSE"
+    "LICENSE",
+    "*.txt"
   ]
 }
