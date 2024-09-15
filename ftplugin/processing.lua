@@ -39,6 +39,19 @@ if not vim.g.loaded_processing_nvim then
             group = processing,
         })
     end
+
+    -- Calling ':make' will run the sketch that the file in the current buffer is in. Assumes that processing-java is installed.
+    local function get_make_command()
+        local filepath = vim.fn.expand('%:p')
+        local filedir = vim.fn.fnamemodify(filepath, ':p:h')
+        local command = string.format('processing-java --sketch=%s --run', filedir)
+        return command
+    end
+
+    -- Set the makeprg to the generated command
+    vim.opt_local.makeprg = get_make_command()
+
+
 end
 
 vim.g.loaded_processing_nvim = true
