@@ -43,7 +43,7 @@ the style used in Java, where `//` is used for single-line comments.
 REQUIREMENTS                    *processing.nvim-processing.nvim-requirements*
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE
+- processing-java
 - Optional:
     - ctags <https://github.com/universal-ctags/ctags> (for `:Processing ctags`).
     - a Processing Language Server (for lsp setup and `:Processing lsp`).
@@ -52,22 +52,13 @@ REQUIREMENTS                    *processing.nvim-processing.nvim-requirements*
         parser for syntax highlighting.
 
 
-  [!warning] MacOSX users will need to install the processing command from the
-  IDE The :make command will not function without doint this Location: Menu Bar >
-  Tools > Install "processing-java"
+  [!warning] macOS users will need to install the processing-java command from
+  the IDE. The `:make` command will not function without doing this. Location:
+  Menu Bar > Tools > Install "processing-java"
 
 INSTALLATION                    *processing.nvim-processing.nvim-installation*
 
-Install processing.nvim with a package manager
-
-
-LUAROCKS ~
-
->sh
-    luarocks install processing.nvim
-<
-
-Install processing.nvim with a plugin manager of your choice
+Install processing.nvim with a package manager of your choice.
 
 
 ROCKS.NVIM ~
@@ -84,6 +75,8 @@ LAZY.NVIM ~
         'sophieforrest/processing.nvim'
         -- This plugin is already lazy-loaded.
         lazy = false,
+        -- Recommended.
+        version = "^1",
     }
 <
 
@@ -112,8 +105,8 @@ VIM-PLUG ~
 CONFIGURATION                  *processing.nvim-processing.nvim-configuration*
 
 
-  [!important] Make sure to run `:checkhealth processing` if something isn’t
-  working properly
+  [!important] If the plugin isn’t working correctly, run `:checkhealth
+  processing` to identify possible issues.
 processing.nvim uses the `vim.g.processing_nvim` namespace for configuration.
 The default configuration can be found below.
 
