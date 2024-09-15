@@ -3,11 +3,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    neorocks.url = "github:nvim-neorocks/neorocks";
+    processing-lsp.url = "git+https://codeberg.org/sophieforrest/processing-lsp.git";
     pre-commit-hooks-nix.url = "github:cachix/pre-commit-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = inputs @ {
+    self,
     flake-parts,
     nixpkgs,
     ...
@@ -22,9 +25,32 @@
 
       perSystem = {
         config,
+        inputs',
         pkgs,
+        system,
         ...
       }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config = {};
+          overlays = [
+            inputs.neorocks.overlays.default
+          ];
+        };
+
+        checks.neorocks-test = pkgs.neorocksTest {
+          inherit (pkgs) neovim;
+          extraPackages = builtins.attrValues {
+            inherit (pkgs) universal-ctags;
+            inherit (pkgs.tree-sitter-grammars) tree-sitter-java;
+            processing-lsp = inputs'.processing-lsp.packages.default;
+          };
+          luaPackages = _: [];
+          name = "processing.nvim";
+          src = self;
+          version = "scm-1";
+        };
+
         packages.default = let
           name = "processing.nvim";
         in

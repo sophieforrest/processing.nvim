@@ -1,0 +1,5 @@
+describe('plugin configuration', function()
+    it('should accept no config', function()
+        assert(require('processing.config'), 'Invalid configuration')
+    end)
+end)
