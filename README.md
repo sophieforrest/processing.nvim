@@ -21,9 +21,7 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 ## Requirements
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE (MacOSX users will need to install the processing command from
-  the IDE)
-  - Location: Menu Bar > Tools > Install "processing-java"
+- Processing IDE
 - Optional:
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
   - a Processing Language Server (for lsp setup and `:Processing lsp`).
@@ -31,9 +29,28 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
     the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
     parser for syntax highlighting.
 
+> [!warning]
+> MacOSX users will need to install the processing command from the IDE
+> The :make command will not function without doint this
+> Location: Menu Bar > Tools > Install "processing-java"
+
 ## Installation
 
+Install processing.nvim with a package manager
+
+### [luarocks](https://github.com/nvim-neorocks/rocks.nvim)
+
+```
+luarocks install processing.nvim
+```
+
 Install processing.nvim with a plugin manager of your choice
+
+### [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim)
+
+```
+:Rocks install processing.nvim
+```
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
