@@ -4,18 +4,25 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 
 ## Features
 
-1. Processing ctags generates an index file of symbols in your source code, enabling quick navigation to definitions and declarations directly within your editor.
+1. Processing ctags generates an index file of symbols in your source code,
+   enabling quick navigation to definitions and declarations directly within
+   your editor.
 
-2. The `:make` command in Neovim is configured to execute your Processing sketch directly using processing-java --sketch=/path/to/your/sketch --run
+2. The `:make` command in Neovim is configured to execute your Processing
+   sketch directly using processing-java --sketch=/path/to/your/sketch --run
 
-3. The `:Processing lsp` command starts the Processing Language Server (LSP), which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil, the LSP will not start.
+3. The `:Processing lsp` command starts the Processing Language Server (LSP),
+   which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil,
+   the LSP will not start.
 
-4. The commentstring is set to // %s to format comments in a way that matches the style used in Java, where // is used for single-line comments.
+4. The commentstring is set to `// %s` to format comments in a way that matches
+   the style used in Java, where `//` is used for single-line comments.
 
 ## Requirements
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE (MacOSX users will need to install the processing command from the IDE)
+- Processing IDE (MacOSX users will need to install the processing command from
+  the IDE)
   - Location: Menu Bar > Tools > Install "processing-java"
 - Optional:
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
@@ -55,9 +62,11 @@ use 'sophieforrest/processing.nvim'
 ```vim
 Plug 'sophieforrest/processing.nvim'
 ```
+
 ## Configuration
 
-processing.nvim uses the `vim.g.processing_nvim` namespace for configuration. The default configuration can be found below.
+processing.nvim uses the `vim.g.processing_nvim` namespace for configuration.
+The default configuration can be found below.
 
 ```lua
 vim.g.processing_nvim = {
@@ -66,7 +75,8 @@ vim.g.processing_nvim = {
         enable = true,
     },
     lsp = {
-        -- The command to use for processing-lsp. This needs to be created manually as processing doesn't bundle their LSP as a separate package.
+        -- The command to use for processing-lsp. This needs to be created
+        -- manually as processing doesn't bundle their LSP as a separate package.
         -- This generally involves editing the processing wrapper script.
         -- This will not start the LSP if set to nil.
         cmd = nil,
@@ -75,7 +85,8 @@ vim.g.processing_nvim = {
 }
 ```
 
-To add configurations, users should place `vim.g.processing_nvim` in their init.lua, or any file that is sourced by init.lua
+To add configurations, users should place `vim.g.processing_nvim` in their
+init.lua, or any file that is sourced by init.lua
 
 ## Recipes
 

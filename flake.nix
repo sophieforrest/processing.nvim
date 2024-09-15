@@ -46,11 +46,19 @@
 
         pre-commit.settings.hooks = {
           deadnix.enable = true;
+          doctags = {
+            enable = true;
+            name = "doctags";
+            entry = "${pkgs.neovim-unwrapped}/bin/nvim -c 'helptags doc' +q";
+            files = "\\.(txt)$";
+            pass_filenames = false;
+          };
           editorconfig-checker = {
             args = ["--config" ".editorconfig-checker.json"];
             enable = true;
           };
           luacheck.enable = true;
+          markdownlint.enable = true;
           statix.enable = true;
         };
 
