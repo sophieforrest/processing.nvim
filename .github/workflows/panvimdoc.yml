@@ -26,7 +26,10 @@ jobs:
           docmappingprojectname: true # Use project name in tag when writing mapping docs
           shiftheadinglevelby: 0 # Shift heading levels by specified number
           incrementheadinglevelby: 0 # Increment heading levels by specified number
-      - uses: stefanzweifel/git-auto-commit-action@v4
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-            commit_message: "chore(docs): auto generate docs"
-            branch: ${{ github.head_ref }}
+          commit_message: "chore(docs): auto generate docs"
+          branch: ${{ github.head_ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
