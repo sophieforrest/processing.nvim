@@ -2,12 +2,6 @@
 
 A simple plugin that provides [Processing](https://processing.org/) support for [Neovim](https://neovim.io/).
 
-## NOTE
-
-This plugin is still work in progress, and doesn't support all the features of
-[sophacles/vim-processing](https://github.com/sophacles/vim-processing). However,
-it is still usable as long as you don't need the `:make` functionality.
-
 ## Requirements
 
 - Neovim >= 0.10.0 (may work on previous versions).
@@ -120,7 +114,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
 Plugin roadmap. If you have anything you feel should be added, please open an issue.
 
 - [x] `:Processing ctags`
-- [ ] `:make` runs sketch
+- [x] `:make` runs sketch
 - [x] Language Server
   - [x] Start Processing LSP
   - [x] `:Processing lsp`
