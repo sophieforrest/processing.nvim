@@ -58,7 +58,10 @@
             enable = true;
           };
           luacheck.enable = true;
-          markdownlint.enable = true;
+          markdownlint = {
+            enable = true;
+            excludes = ["CHANGELOG.md"];
+          };
           statix.enable = true;
         };
 
