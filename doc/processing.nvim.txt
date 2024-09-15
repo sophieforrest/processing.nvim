@@ -34,8 +34,8 @@ which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil, the
 LSP will not start.
 
 
-4. The commentstring is set to // %s to format comments in a way that matches the
-style used in Java, where // is used for single-line comments.
+4. The commentstring is set to `// %s` to format comments in a way that matches
+the style used in Java, where `//` is used for single-line comments.
 
 
 
@@ -43,7 +43,8 @@ style used in Java, where // is used for single-line comments.
 REQUIREMENTS                    *processing.nvim-processing.nvim-requirements*
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE (MacOSX users will need to install the processing command from the IDE)
+- Processing IDE (MacOSX users will need to install the processing command from
+    the IDE)
     - Location: Menu Bar > Tools > Install "processing-java"
 - Optional:
     - ctags <https://github.com/universal-ctags/ctags> (for `:Processing ctags`).
@@ -102,7 +103,8 @@ The default configuration can be found below.
             enable = true,
         },
         lsp = {
-            -- The command to use for processing-lsp. This needs to be created manually as processing doesn't bundle their LSP as a separate package.
+            -- The command to use for processing-lsp. This needs to be created
+            -- manually as processing doesn't bundle their LSP as a separate package.
             -- This generally involves editing the processing wrapper script.
             -- This will not start the LSP if set to nil.
             cmd = nil,
