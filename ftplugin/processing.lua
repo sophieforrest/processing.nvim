@@ -39,6 +39,19 @@ if not vim.g.loaded_processing_nvim then
             group = processing,
         })
     end
+
+    -- vim.opt.makeprg = 'processing-java --sketch=/Users/piperinnshall/Developer/processing/A1Submission/A1CompA --run'
+
+    vim.opt_local.makeprg = "echo 'Hello, World!'"
+
+
+    local function get_make_command()
+        local filepath = vim.fn.expand('%:p')
+        local filedir = vim.fn.fnamemodify(filepath, ':p:h')
+        local parentdir = vim.fn.fnamemodify(filedir, ':p:h')
+        local command = string.format('processing-java --sketch=%s --run', parentdir)
+        return command
+    end
 end
 
 vim.g.loaded_processing_nvim = true
