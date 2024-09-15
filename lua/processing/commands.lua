@@ -1,3 +1,5 @@
+---@mod processing.commands processing.nvim command functionality.
+
 local Commands = {}
 
 ---@class processing.Command.Subcommand
