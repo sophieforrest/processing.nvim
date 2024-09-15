@@ -21,7 +21,7 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 ## Requirements
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE
+- processing-java
 - Optional:
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
   - a Processing Language Server (for lsp setup and `:Processing lsp`).
@@ -30,21 +30,13 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
     parser for syntax highlighting.
 
 > [!warning]
-> MacOSX users will need to install the processing command from the IDE
-> The :make command will not function without doint this
+> macOS users will need to install the processing-java command from the IDE.
+> The `:make` command will not function without doing this.
 > Location: Menu Bar > Tools > Install "processing-java"
 
 ## Installation
 
-Install processing.nvim with a package manager
-
-### [luarocks](https://github.com/nvim-neorocks/rocks.nvim)
-
-```sh
-luarocks install processing.nvim
-```
-
-Install processing.nvim with a plugin manager of your choice
+Install processing.nvim with a package manager of your choice.
 
 ### [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim)
 
@@ -59,6 +51,8 @@ Install processing.nvim with a plugin manager of your choice
     'sophieforrest/processing.nvim'
     -- This plugin is already lazy-loaded.
     lazy = false,
+    -- Recommended.
+    version = "^1",
 }
 ```
 
@@ -74,7 +68,7 @@ use 'sophieforrest/processing.nvim'
 'sophieforrest/processing.nvim'
 ```
 
-### [vim-plug](https://github.com/savq/paq-nvim)
+### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
 Plug 'sophieforrest/processing.nvim'
@@ -83,7 +77,8 @@ Plug 'sophieforrest/processing.nvim'
 ## Configuration
 
 > [!important]
-> Make sure to run `:checkhealth processing` if something isn't working properly
+> If the plugin isn't working correctly, run `:checkhealth processing` to
+> identify possible issues.
 
 processing.nvim uses the `vim.g.processing_nvim` namespace for configuration.
 The default configuration can be found below.
