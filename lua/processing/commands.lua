@@ -14,6 +14,8 @@ function Commands.add_subcommand(name, subcommand)
     subcommands = vim.tbl_extend('force', subcommands, {
         [name] = subcommand,
     })
+
+    table.sort(subcommand)
 end
 
 --- Implementation for the :Processing command.
