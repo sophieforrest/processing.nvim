@@ -41,7 +41,7 @@
         checks.neorocks-test = pkgs.neorocksTest {
           inherit (pkgs) neovim;
           extraPackages = builtins.attrValues {
-            inherit (pkgs) universal-ctags;
+            inherit (pkgs) processing universal-ctags;
             inherit (pkgs.tree-sitter-grammars) tree-sitter-java;
             processing-lsp = inputs'.processing-lsp.packages.default;
           };
