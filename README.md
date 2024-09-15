@@ -40,7 +40,7 @@ Install processing.nvim with a package manager
 
 ### [luarocks](https://github.com/nvim-neorocks/rocks.nvim)
 
-```
+```sh
 luarocks install processing.nvim
 ```
 
@@ -48,7 +48,7 @@ Install processing.nvim with a plugin manager of your choice
 
 ### [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim)
 
-```
+```vim
 :Rocks install processing.nvim
 ```
 
