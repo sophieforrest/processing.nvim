@@ -63,7 +63,7 @@ Install processing.nvim with a package manager
 
 LUAROCKS ~
 
->
+>sh
     luarocks install processing.nvim
 <
 
@@ -72,7 +72,7 @@ Install processing.nvim with a plugin manager of your choice
 
 ROCKS.NVIM ~
 
->
+>vim
     :Rocks install processing.nvim
 <
 
