@@ -2,10 +2,22 @@
 
 A simple plugin that provides [Processing](https://processing.org/) support for [Neovim](https://neovim.io/).
 
+## Features
+
+1. Processing ctags generates an index file of symbols in your source code, enabling quick navigation to definitions and declarations directly within your editor.
+
+2. The `:make` command in Neovim is configured to execute your Processing sketch directly using processing-java --sketch=/path/to/your/sketch --run
+
+3. The `:Processing lsp` command starts the Processing Language Server (LSP), which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil, the LSP will not start.
+
+4. The commentstring is set to // %s to format comments in a way that matches the style used in Java, where // is used for single-line comments.
+
 ## Requirements
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- optional:
+- Processing IDE (MacOSX users will need to install the processing command from the IDE)
+  - Location: Menu Bar > Tools > Install "processing-java"
+- Optional:
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
   - a Processing Language Server (for lsp setup and `:Processing lsp`).
   - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
@@ -14,9 +26,9 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 
 ## Installation
 
-processing.nvim supports all the usual plugin managers.
+Install processing.nvim with a plugin manager of your choice
 
-### lazy.nvim
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
@@ -26,51 +38,26 @@ processing.nvim supports all the usual plugin managers.
 }
 ```
 
-### Packer
+### [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-require("packer").startup(function()
-    use({ 'sophieforrest/processing.nvim' })
-end,
+use 'sophieforrest/processing.nvim'
 ```
 
-### Paq
+### [paq-nvim](https://github.com/savq/paq-nvim)
 
 ```lua
-require("paq")({
-    { 'sophieforrest/processing.nvim' }
-})
+'sophieforrest/processing.nvim'
 ```
 
-### vim-plug
+### [vim-plug](https://github.com/savq/paq-nvim)
 
 ```vim
 Plug 'sophieforrest/processing.nvim'
 ```
-
-### dein
-
-```vim
-call dein#add('sophieforrest/processing.nvim')
-```
-
-### Pathogen
-
-```sh
-git clone --depth=1 https://github.com/sophieforrest/processing.nvim.git ~/.vim/bundle
-```
-
-### Neovim native package
-
-```sh
-git clone --depth=1 https://github.com/sophieforrest/processing.nvim.git \
-    "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/processing/start/processing.nvim
-```
-
 ## Configuration
 
-processing.nvim uses the `vim.g.processing_nvim` namespace for configuration.
-The default configuration can be found below.
+processing.nvim uses the `vim.g.processing_nvim` namespace for configuration. The default configuration can be found below.
 
 ```lua
 vim.g.processing_nvim = {
@@ -79,23 +66,20 @@ vim.g.processing_nvim = {
         enable = true,
     },
     lsp = {
-        -- The command to use for processing-lsp. This needs to be created
-        -- manually as processing doesn't bundle their LSP as a separate
-        -- package. This generally involves editing the processing wrapper
-        -- script.
-        --
+        -- The command to use for processing-lsp. This needs to be created manually as processing doesn't bundle their LSP as a separate package.
+        -- This generally involves editing the processing wrapper script.
         -- This will not start the LSP if set to nil.
         cmd = nil,
-
-        -- Example
-        -- cmd = { "processing-lsp" }
+        -- Example: cmd = { "processing-lsp" }
     },
 }
 ```
 
+To add configurations, users should place `vim.g.processing_nvim` in their init.lua, or any file that is sourced by init.lua
+
 ## Recipes
 
-Snippets users of processing.nvim may find useful to include in their configs.
+Code examples that users of processing.nvim may find useful to include in their configs.
 
 ### Generating ctags on save
 
@@ -108,17 +92,6 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     pattern = { '*.pde' },
 })
 ```
-
-## Roadmap
-
-Plugin roadmap. If you have anything you feel should be added, please open an issue.
-
-- [x] `:Processing ctags`
-- [x] `:make` runs sketch
-- [x] Language Server
-  - [x] Start Processing LSP
-  - [x] `:Processing lsp`
-- [x] Set commentstring
 
 ## Related projects
 
