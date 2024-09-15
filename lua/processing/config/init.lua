@@ -9,14 +9,6 @@
 ---@endbrief
 
 ---@class processing.Config: processing.Opts
----@field highlight processing.Config.Highlight
----@field lsp processing.Config.Lsp
-
----@class processing.Config.Highlight
----@field enable boolean
-
----@class processing.Config.Lsp
----@field cmd string[]|nil|fun(dispatchers: vim.lsp.rpc.Dispatchers): vim.lsp.rpc.PublicClient
 
 ---@tag vim.g.processing_nvim
 ---@tag g:processing_nvim
@@ -34,7 +26,7 @@
 vim.g.processing_nvim = vim.g.processing_nvim
 
 local check = require('processing.config.check')
-local default_config = require('processing.config.default')
+local default_config = require('processing.config.default').default_config
 local opts = vim.g.processing_nvim or {}
 
 ---@type processing.Config

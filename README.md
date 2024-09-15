@@ -73,8 +73,12 @@ The default configuration can be found below.
 
 ```lua
 vim.g.processing_nvim = {
+
+---@type processing.Config
+Default.default = {
     highlight = {
         -- Whether to enable treesitter highlighting.
+        ---@type boolean
         enable = true,
     },
     lsp = {
@@ -82,6 +86,7 @@ vim.g.processing_nvim = {
         -- manually as processing doesn't bundle their LSP as a separate package.
         -- This generally involves editing the processing wrapper script.
         -- This will not start the LSP if set to nil.
+        ---@type string[]|nil|fun(dispatchers: vim.lsp.rpc.Dispatchers): vim.lsp.rpc.PublicClient
         cmd = nil,
         -- Example: cmd = { "processing-lsp" }
     },
