@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/sophieforrest/processing.nvim/compare/v1.0.0...v1.1.0) (2024-09-15)
+
+
+### Features
+
+* **health:** add processing-java to healthchecks ([a8b6c3e](https://github.com/sophieforrest/processing.nvim/commit/a8b6c3e0ff686d199381e450cb22bc96848b99c9))
+
 ## 1.0.0 (2024-09-15)
 
 
