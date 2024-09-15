@@ -50,8 +50,6 @@ if not vim.g.loaded_processing_nvim then
 
     -- Set the makeprg to the generated command
     vim.opt_local.makeprg = get_make_command()
-
-
 end
 
 vim.g.loaded_processing_nvim = true
