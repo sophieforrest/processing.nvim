@@ -12,7 +12,7 @@ local dependencies = {
     {
         command = 'ctags',
         optional = true,
-        required_by = 'Processing ctags',
+        required_by = ':Processing ctags',
     },
 }
 
@@ -61,7 +61,15 @@ function Health.check()
     check_tree_sitter()
 
     vim.health.start('External tools')
-    check_executable(dependencies[1])
+    vim.iter(dependencies):each(check_executable)
+
+    -- processing-java is a bit of a stubborn binary in that it prints the entire manual when you
+    -- run --version, so we have to keep this isolated from the above dependencies.
+    if vim.fn.executable('processing-java') then
+        vim.health.ok('processing-java')
+    else
+        vim.health.error('not executable: processing-java')
+    end
 end
 
 return Health
