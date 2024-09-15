@@ -65,6 +65,9 @@ Plug 'sophieforrest/processing.nvim'
 
 ## Configuration
 
+> [!important]
+> Make sure to run `:checkhealth processing` if something isn't working properly
+
 processing.nvim uses the `vim.g.processing_nvim` namespace for configuration.
 The default configuration can be found below.
 
