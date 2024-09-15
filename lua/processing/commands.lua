@@ -7,6 +7,10 @@ local Commands = {}
 ---@type table<string, processing.Command.Subcommand>
 local subcommands = {}
 
+--- Sorted subcommands by name.
+---@type table<integer, string>
+local subcommand_names = {}
+
 --- Add a subcommand to the :Processing command.
 ---@param name string Subcommand name.
 ---@param subcommand processing.Command.Subcommand Subcommand implementation.
@@ -15,7 +19,8 @@ function Commands.add_subcommand(name, subcommand)
         [name] = subcommand,
     })
 
-    table.sort(subcommand)
+    table.insert(subcommand_names, name)
+    table.sort(subcommand_names)
 end
 
 --- Implementation for the :Processing command.
@@ -57,8 +62,7 @@ vim.api.nvim_create_user_command('Processing', processing_cmd, {
         -- Check if cmdline is a subcommand
         if cmdline:match("^['<,'>]*Processing[!]*%s+%w*$") then
             -- Filter subcommands that match
-            local subcommand_keys = vim.tbl_keys(subcommands)
-            return vim.iter(subcommand_keys)
+            return vim.iter(subcommand_names)
                 :filter(function(key)
                     return key:find(arg_lead) ~= nil
                 end)
