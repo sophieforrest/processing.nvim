@@ -1,3 +1,5 @@
+---@mod processing.lsp processing.nvim LSP functionality.
+
 local Lsp = {}
 
 --- Restart the LSP clients attached to the current buffer.

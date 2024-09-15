@@ -1,3 +1,5 @@
+---@mod processing.health processing.nvim health checks.
+
 local Health = {}
 
 ---@class processing.Health.Dependency
