@@ -43,9 +43,7 @@ the style used in Java, where `//` is used for single-line comments.
 REQUIREMENTS                    *processing.nvim-processing.nvim-requirements*
 
 - Neovim >= 0.10.0 (may work on previous versions).
-- Processing IDE (MacOSX users will need to install the processing command from
-    the IDE)
-    - Location: Menu Bar > Tools > Install "processing-java"
+- Processing IDE
 - Optional:
     - ctags <https://github.com/universal-ctags/ctags> (for `:Processing ctags`).
     - a Processing Language Server (for lsp setup and `:Processing lsp`).
@@ -54,9 +52,29 @@ REQUIREMENTS                    *processing.nvim-processing.nvim-requirements*
         parser for syntax highlighting.
 
 
+  [!warning] MacOSX users will need to install the processing command from the
+  IDE The :make command will not function without doint this Location: Menu Bar >
+  Tools > Install "processing-java"
+
 INSTALLATION                    *processing.nvim-processing.nvim-installation*
 
+Install processing.nvim with a package manager
+
+
+LUAROCKS ~
+
+>
+    luarocks install processing.nvim
+<
+
 Install processing.nvim with a plugin manager of your choice
+
+
+ROCKS.NVIM ~
+
+>
+    :Rocks install processing.nvim
+<
 
 
 LAZY.NVIM ~
