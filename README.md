@@ -20,19 +20,19 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 
 ## Requirements
 
-  - Neovim >= 0.10.0 (may work on previous versions).
-  - processing-java
-  - Optional:
-  - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
-  - a Processing Language Server (for lsp setup and `:Processing lsp`).
-  - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
-  the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
-  parser for syntax highlighting.
+- Neovim >= 0.10.0 (may work on previous versions).
+- processing-java
+- Optional:
+- [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
+- a Processing Language Server (for lsp setup and `:Processing lsp`).
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
+the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
+parser for syntax highlighting.
 
-  > [!warning]
-  > macOS users will need to install the processing-java command from the IDE.
-  > The `:make` command will not function without doing this.
-  > Location: Menu Bar > Tools > Install "processing-java"
+> [!warning]
+> macOS users will need to install the processing-java command from the IDE.
+> The `:make` command will not function without doing this.
+> Location: Menu Bar > Tools > Install "processing-java"
 
 ## Installation
 
@@ -107,10 +107,8 @@ vim.g.processing_nvim = {
 
 ## Recipes
 
-init.lua, or any file that is sourced by init.lua
-
-
 Code examples that users of processing.nvim may find useful to include in their configs.
+These can be included anywhere in your configuration.
 
 ### Generating ctags on save
 
