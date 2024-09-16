@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/sophieforrest/processing.nvim/compare/v1.1.0...v1.2.0) (2024-09-16)
+
+
+### Features
+
+* add error values to make command ([4046d18](https://github.com/sophieforrest/processing.nvim/commit/4046d18fcd42d3a6d03841b790660fc50f332fee))
+
 ## [1.1.0](https://github.com/sophieforrest/processing.nvim/compare/v1.0.0...v1.1.0) (2024-09-15)
 
 

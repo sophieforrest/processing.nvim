@@ -4,39 +4,39 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
 
 ## Features
 
-1. Processing ctags generates an index file of symbols in your source code,
-   enabling quick navigation to definitions and declarations directly within
-   your editor.
+  1. Processing ctags generates an index file of symbols in your source code,
+  enabling quick navigation to definitions and declarations directly within
+  your editor.
 
-2. The `:make` command in Neovim is configured to execute your Processing
-   sketch directly using processing-java --sketch=/path/to/your/sketch --run
+  2. The `:make` command in Neovim is configured to execute your Processing
+  sketch directly using processing-java --sketch=/path/to/your/sketch --run
 
-3. The `:Processing lsp` command starts the Processing Language Server (LSP),
-   which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil,
-   the LSP will not start.
+  3. The `:Processing lsp` command starts the Processing Language Server (LSP),
+  which must be manually set up. if `vim.g.processing_nvim.lsp.cmd` is nil,
+  the LSP will not start.
 
-4. The commentstring is set to `// %s` to format comments in a way that matches
-   the style used in Java, where `//` is used for single-line comments.
+  4. The commentstring is set to `// %s` to format comments in a way that matches
+  the style used in Java, where `//` is used for single-line comments.
 
 ## Requirements
 
-- Neovim >= 0.10.0 (may work on previous versions).
-- processing-java
-- Optional:
+  - Neovim >= 0.10.0 (may work on previous versions).
+  - processing-java
+  - Optional:
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
   - a Processing Language Server (for lsp setup and `:Processing lsp`).
   - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
-    the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
-    parser for syntax highlighting.
+  the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
+  parser for syntax highlighting.
 
-> [!warning]
-> macOS users will need to install the processing-java command from the IDE.
-> The `:make` command will not function without doing this.
-> Location: Menu Bar > Tools > Install "processing-java"
+  > [!warning]
+  > macOS users will need to install the processing-java command from the IDE.
+  > The `:make` command will not function without doing this.
+  > Location: Menu Bar > Tools > Install "processing-java"
 
 ## Installation
 
-Install processing.nvim with a package manager of your choice.
+  Install processing.nvim with a package manager of your choice.
 
 ### [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim)
 
@@ -46,13 +46,13 @@ Install processing.nvim with a package manager of your choice.
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-```lua
+  ```lua
 {
-    'sophieforrest/processing.nvim'
-    -- This plugin is already lazy-loaded.
-    lazy = false,
-    -- Recommended.
-    version = "^1",
+  'sophieforrest/processing.nvim'
+  -- This plugin is already lazy-loaded.
+  lazy = false,
+  -- Recommended.
+  version = "^1",
 }
 ```
 
@@ -85,30 +85,30 @@ The default configuration can be found below.
 
 ```lua
 vim.g.processing_nvim = {
-
----@type processing.Config
-Default.default = {
+  ---@type processing.Config
+  Default.default = {
     highlight = {
-        -- Whether to enable treesitter highlighting.
+      -- Whether to enable treesitter highlighting.
         ---@type boolean
         enable = true,
     },
     lsp = {
-        -- The command to use for processing-lsp. This needs to be created
-        -- manually as processing doesn't bundle their LSP as a separate package.
-        -- This generally involves editing the processing wrapper script.
-        -- This will not start the LSP if set to nil.
-        ---@type string[]|nil|fun(dispatchers: vim.lsp.rpc.Dispatchers): vim.lsp.rpc.PublicClient
-        cmd = nil,
-        -- Example: cmd = { "processing-lsp" }
+      -- The command to use for processing-lsp. This needs to be created
+      -- manually as processing doesn't bundle their LSP as a separate package.
+      -- This generally involves editing the processing wrapper script.
+      -- This will not start the LSP if set to nil.
+      ---@type string[]|nil|fun(dispatchers: vim.lsp.rpc.Dispatchers): vim.lsp.rpc.PublicClient
+      cmd = nil,
+      -- Example: cmd = { "processing-lsp" }
     },
+  },
 }
 ```
 
-To add configurations, users should place `vim.g.processing_nvim` in their
+## Recipes
+
 init.lua, or any file that is sourced by init.lua
 
-## Recipes
 
 Code examples that users of processing.nvim may find useful to include in their configs.
 
@@ -117,10 +117,23 @@ Code examples that users of processing.nvim may find useful to include in their 
 ```lua
 local processing_ctags = vim.api.nvim_create_augroup('ProcessingCtags', {})
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-    command = 'Processing ctags',
-    desc = 'Generate ctags for Processing on save.',
-    group = processing_ctags,
-    pattern = { '*.pde' },
+  command = 'Processing ctags',
+  desc = 'Generate ctags for Processing on save.',
+  group = processing_ctags,
+  pattern = { '*.pde' },
+})
+```
+
+### Show errors when calling :make
+
+```lua
+vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+  pattern = '*',
+  callback = function()
+    if #vim.fn.getqflist() > 0 then
+      vim.cmd('copen')
+    end
+  end,
 })
 ```
 
