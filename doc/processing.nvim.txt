@@ -135,10 +135,8 @@ The default configuration can be found below.
 
 RECIPES                              *processing.nvim-processing.nvim-recipes*
 
-init.lua, or any file that is sourced by init.lua
-
 Code examples that users of processing.nvim may find useful to include in their
-configs.
+configs. These can be included anywhere in your configuration.
 
 
 GENERATING CTAGS ON SAVE ~
