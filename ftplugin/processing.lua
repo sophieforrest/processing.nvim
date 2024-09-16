@@ -50,6 +50,16 @@ if not vim.g.loaded_processing_nvim then
 
     -- Set the makeprg to the generated command
     vim.opt_local.makeprg = get_make_command()
+
+    -- Call copen to show make errors
+    vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+        pattern = '*',
+        callback = function()
+            if #vim.fn.getqflist() > 0 then
+                vim.cmd('copen')
+            end
+        end,
+    })
 end
 
 vim.g.loaded_processing_nvim = true
