@@ -26,8 +26,8 @@ A simple plugin that provides [Processing](https://processing.org/) support for 
   - [ctags](https://github.com/universal-ctags/ctags) (for `:Processing ctags`).
   - a Processing Language Server (for lsp setup and `:Processing lsp`).
   - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with
-  the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
-  parser for syntax highlighting.
+    the [tree-sitter-java](https://github.com/tree-sitter/tree-sitter-java)
+    parser for syntax highlighting.
 
 > [!warning]
 > macOS users will need to install the processing-java command from the IDE.
