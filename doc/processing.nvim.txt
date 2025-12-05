@@ -1,4 +1,4 @@
-*processing.nvim.txt*       For NVIM v0.10.0      Last change: 2024 October 15
+*processing.nvim.txt*      For NVIM v0.10.0      Last change: 2025 December 05
 
 ==============================================================================
 Table of Contents                          *processing.nvim-table-of-contents*
