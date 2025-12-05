@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/sophieforrest/processing.nvim/compare/v1.1.0...v1.1.1) (2025-12-05)
+
+
+### Bug Fixes
+
+* escape file paths ([7c76943](https://github.com/sophieforrest/processing.nvim/commit/7c769439342d1eb0730790179e2f51fef8f32379))
+
 ## [1.1.0](https://github.com/sophieforrest/processing.nvim/compare/v1.0.0...v1.1.0) (2024-09-15)
 
 
